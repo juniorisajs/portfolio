@@ -2,7 +2,7 @@
 (function() {
 
     var word = ['Eu sou Junior Silva!', 'desenvolvedor Front-end', 'apaixonado por interfaces', 'minimalistas e objetivas!'];
-    // var element = document.getElementsByTagName('h2')[0];
+   
     var element = document.getElementsByClassName("bigtext")[0];
     var wordIndex = 0;
 
@@ -57,11 +57,9 @@ $(function() {
   });
 });
 
-// Apply click handler to all tile elements,
+
 $('.tile').click(function(){
-   // Get image inside tile element
   var img = $(this).find('img');
-  // Update modal with image data
   $("#img01").attr('src', img.attr('src'));
   $("#img02").attr('src', img.attr('src'));
   $('#caption').html(img.attr('alt'));
@@ -72,3 +70,20 @@ $('.tile').click(function(){
 $('.close').click(function(){
   $('#myModal').css('display','none');
 })
+
+//BOTAO TOPO
+var btn = $('#button');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
